@@ -57,32 +57,4 @@ class Rabbitmq < Formula
     NODENAME=rabbit@localhost
     EOS
   end
-
-  plist_options :manual => 'rabbitmq-server'
-
-  def plist; <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_prefix}/sbin/rabbitmq-server</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <!-- need erl in the path -->
-          <key>PATH</key>
-          <string>/usr/local/sbin:/usr/bin:/bin:/usr/local/bin</string>
-          <!-- specify the path to the rabbitmq-env.conf file -->
-          <key>CONF_ENV_FILE</key>
-          <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
-        </dict>
-      </dict>
-    </plist>
-    EOS
-  end
 end
