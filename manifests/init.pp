@@ -5,7 +5,7 @@
 #   include rabbitmq
 #
 class rabbitmq {
-
+  include homebrew
   include erlang
 
   homebrew::formula { 'rabbitmq':
@@ -14,7 +14,7 @@ class rabbitmq {
   }
 
   package { 'boxen/brews/rabbitmq':
-    ensure  => '3.1.4-boxen1',
+    ensure  => '3.1.4-boxen1'
   }
 
 }
