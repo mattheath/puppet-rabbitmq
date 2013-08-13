@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.rabbitmq</string>
+
+    <key>Boxen</key>
+    <dict>
+      <key>Description</key>
+      <string>AMQP message broker.</string>
+
+      <key>Port</key>
+      <integer>5672</integer>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/boxen/homebrew/opt/rabbitmq/sbin/rabbitmq-server</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <!-- need erl in the path -->
+      <key>PATH</key>
+      <string>/usr/local/sbin:/usr/bin:/bin:/usr/local/bin</string>
+      <!-- specify the path to the rabbitmq-env.conf file -->
+      <key>CONF_ENV_FILE</key>
+      <string>/opt/boxen/homebrew/etc/rabbitmq/rabbitmq-env.conf</string>
+      <!-- rabbit home path -->
+      <key>HOME</key>
+      <string>/opt/boxen/data/rabbitmq</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true />
+
+    <key>KeepAlive</key>
+    <true />
+
+    <key>UserName</key>
+    <string>root</string>
+
+    <key>WorkingDirectory</key>
+    <string>/opt/boxen/data/rabbitmq</string>
+
+    <key>StandardErrorPath</key>
+    <string>/opt/boxen/log/rabbitmq/console.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/opt/boxen/log/rabbitmq/console.log</string>
+  </dict>
+</plist>
